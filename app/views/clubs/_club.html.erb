@@ -1,0 +1,15 @@
+<div id="<%= dom_id club %>">
+  <p>
+    <strong>Name:</strong>
+    <%= club.name %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= club.description %>
+  </p>
+
+<%= link_to 'Edit', edit_club_path(club), class: "btn btn-primary" %>
+<%= link_to 'Destroy', club, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+
+</div>
