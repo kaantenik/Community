@@ -1,0 +1,7 @@
+<%= turbo_stream.replace "flash" do %>
+  <% if notice %>
+    <div class="notification bg-green-500 text-white p-4 rounded shadow-md">
+      <p><%= notice %></p>
+    </div>
+  <% end %>
+<% end %>

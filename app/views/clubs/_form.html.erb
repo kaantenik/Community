@@ -1,8 +1,8 @@
-<%= form_with(model: club, local: true) do |form| %>
+<%= form_with(model: club, local: true, class: "space-y-4") do |form| %>
   <% if club.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(club.errors.count, "error") %> prohibited this club from being saved:</h2>
-      <ul>
+    <div id="error_explanation" class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4">
+      <h2 class="font-bold"><%= pluralize(club.errors.count, "error") %> prohibited this club from being saved:</h2>
+      <ul class="list-disc list-inside">
         <% club.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
@@ -10,17 +10,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+   <div class="field">
+     <%= form.label :name, class: "block text-gray-700 text-sm font-bold mb-2" %>
+     <%= form.text_field :name, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+   </div>
+ 
+   <div class="field">
+    <%= form.label :description, class: "block text-gray-700 text-sm font-bold mb-2" %>
+     <%= form.rich_text_area :description, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.rich_text_area :description %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+   <div class="actions">
+     <%= form.submit 'Save', class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+   </div>
 <% end %>

@@ -10,7 +10,7 @@ class ClubPolicy < ApplicationPolicy
   end
 
   def create?
-    user.has_role?(:admin)
+    user.present? && user.has_role?(:admin)
   end
 
   def new?
@@ -18,7 +18,7 @@ class ClubPolicy < ApplicationPolicy
   end
 
   def update?
-    user.has_role?(:admin)
+    user.present? && user.has_role?(:admin)
   end
 
   def edit?
@@ -26,6 +26,6 @@ class ClubPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user.has_role?(:admin)
+    user.present? && user.has_role?(:admin)
   end
 end

@@ -6,6 +6,8 @@ gem "devise"
 gem 'pundit'
 gem 'actiontext'
 gem "rolify"
+gem 'tailwindcss-rails'
+
 
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"

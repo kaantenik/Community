@@ -1,12 +1,20 @@
-<p>
-  <strong>Name:</strong>
-  <%= @club.name %>
-</p>
+<div class="bg-white p-4 rounded-lg shadow-md">
+  <p class="text-lg font-bold">
+    <strong>Name:</strong>
+    <%= @club.name %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @club.description %>
-</p>
+  <p class="mt-2">
+    <strong>Description:</strong>
+    <%= @club.description %>
+  </p>
+ 
+   <div class="mt-4">
 
-<%= link_to 'Edit', edit_club_path(@club) %> |
-<%= link_to 'Back', clubs_path %>
+  <% if policy(Club).edit? %>
+      <%= link_to 'Edit', edit_club_path(@club), class: "text-blue-500 hover:underline" %> |
+  <% end %>
+
+    <%= link_to 'Back', clubs_path, class: "text-blue-500 hover:underline" %>
+   </div>
+</div>

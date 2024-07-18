@@ -1,10 +1,10 @@
-<h1>Editing club</h1>
+<h1 class="text-2xl font-bold mb-4">Editing club</h1>
 
 <%= render "form", club: @club %>
 
 <br>
 
 <div>
-  <%= link_to "Show this club", @club %> |
-  <%= link_to "Back to clubs", clubs_path %>
+  <%= link_to "Show this club", @club, class: "text-blue-500 hover:underline" %> |
+  <%= link_to "Back to clubs", clubs_path, class: "text-blue-500 hover:underline" %>
 </div>

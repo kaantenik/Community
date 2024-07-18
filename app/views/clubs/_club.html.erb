@@ -1,15 +1,16 @@
-<div id="<%= dom_id club %>">
-  <p>
+<div id="<%= dom_id club %>" class="p-4 bg-white rounded-lg shadow-md">
+  <p class="text-lg font-bold">
     <strong>Name:</strong>
     <%= club.name %>
   </p>
+  <div class="mt-2">
+    <% if policy(club).edit? %>
+      <%= link_to 'Edit', edit_club_path(club), class: "btn btn-primary inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700" %>
+    <%end%>
 
-  <p>
-    <strong>Description:</strong>
-    <%= club.description %>
-  </p>
+    <% if policy(club).destroy? %>
+      <%= link_to 'Destroy', club, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-danger inline-block bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700" %>
+    <%end%>
 
-<%= link_to 'Edit', edit_club_path(club), class: "btn btn-primary" %>
-<%= link_to 'Destroy', club, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-
+  </div>
 </div>
