@@ -1,0 +1,11 @@
+<h1 class="mb-4 text-2xl font-bold">Üyelik Talebi</h1>
+
+<div class="p-4 bg-white rounded-lg shadow-md">
+  <p><strong>Kullanıcı:</strong> <%= @membership_request.user.email %></p>
+  <p><strong>Kulüp:</strong> <%= @membership_request.club.name %></p>
+  <p><strong>Onaylı:</strong> <%= @membership_request.approved ? 'Evet' : 'Hayır' %></p>
+  <div class="flex mt-2 space-x-4">
+    <%= link_to 'Düzenle', edit_membership_request_path(@membership_request), class: 'bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-700' %>
+    <%= link_to 'Geri Dön', membership_requests_path, class: 'bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-700' %>
+  </div>
+</div>

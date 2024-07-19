@@ -1,0 +1,18 @@
+<h1 class="mb-4 text-2xl font-bold text-white"><%= @club.name %> Üyelik Talepleri</h1>
+
+<div class="space-y-4">
+  <% @membership_requests.each do |request| %>
+    <div class="p-4 bg-gray-700 rounded-lg shadow-md">
+      <p class="text-gray-400">
+        <strong>Kullanıcı:</strong> <%= request.user.email %>
+      </p>
+      <div class="flex mt-2 space-x-4">
+        <%= link_to 'Onayla', approve_membership_request_club_path(@club, membership_request_id: request.id), method: :patch, data: { 'turbo-method': :patch }, class: "btn btn-success inline-block text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800 mt-8" %>
+        <%= link_to 'Reddet', reject_membership_request_club_path(@club, membership_request_id: request.id), method: :delete, data: { 'turbo-method': :delete }, class: "text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900 mt-8" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="mt-4">
+  <%= link_to 'Geri Dön', club_path(@club), class: "text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-1.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800" %>
+</div>

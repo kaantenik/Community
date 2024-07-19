@@ -1,0 +1,21 @@
+<%= form_with(model: @membership_request, local: true) do |form| %>
+  <% if @membership_request.errors.any? %>
+    <div class="p-4 mb-4 text-red-800 bg-red-100 rounded">
+      <h2 class="mb-2 text-xl font-bold"><%= pluralize(@membership_request.errors.count, "hata") %> oluştu:</h2>
+      <ul class="pl-5 list-disc">
+        <% @membership_request.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-4">
+    <%= form.label :club_id, "Kulüp", class: "block text-white" %>
+    <%= form.collection_select :club_id, Club.all, :id, :name, { prompt: "Kulüp seçin" }, { class: "form-select text-white bg-gray-700 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" } %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Gönder", class:  "btn btn-success inline-block text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-6 py-2.5 text-center me-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800 mt-8"  %>
+  </div>
+<% end %>

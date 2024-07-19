@@ -2,15 +2,15 @@
 
 <div id="clubs" class="space-y-4">
   <% @clubs.each do |club| %>
-    <div class="bg-white p-4 rounded-lg shadow-md">
+    <div class="p-4 bg-gray-700 rounded-lg shadow-md">
       <%= render club %>
       <p class="mt-2">
-        <%= link_to "Show this club", club, class: "text-blue-500 hover:underline" %>
+        <%= link_to "Kulübü göster",club, class: "text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-1.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800" %>
       </p>
     </div>
   <% end %>
 </div>
 
 <% if policy(Club).new? %>
-    <%= link_to "New club", new_club_path, class: "btn btn-success inline-block bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700 mt-4" %>
+  <%= link_to "Yeni Kulüp", new_club_path, class: "btn btn-success inline-block text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800 mt-8" %>
 <% end %>

@@ -1,6 +1,6 @@
 <%= form_with(model: club, local: true, class: "space-y-4") do |form| %>
   <% if club.errors.any? %>
-    <div id="error_explanation" class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4">
+    <div id="error_explanation" class="p-4 text-red-700 bg-red-100 border-l-4 border-red-500">
       <h2 class="font-bold"><%= pluralize(club.errors.count, "error") %> prohibited this club from being saved:</h2>
       <ul class="list-disc list-inside">
         <% club.errors.full_messages.each do |message| %>
@@ -11,16 +11,17 @@
   <% end %>
 
    <div class="field">
-     <%= form.label :name, class: "block text-gray-700 text-sm font-bold mb-2" %>
-     <%= form.text_field :name, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+     <%= form.label :İsim, class: "block text-white text-sm font-bold mb-2" %>
+     <%= form.text_field :name, class: "shadow appearance-none border rounded w-full py-2 px-3 bg-gray-800 text-white  leading-tight focus:outline-none focus:shadow-outline" %>
    </div>
  
    <div class="field">
-    <%= form.label :description, class: "block text-gray-700 text-sm font-bold mb-2" %>
-     <%= form.rich_text_area :description, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+    <%= form.label :Tanıtım, class: "block text-white text-sm font-bold mb-2" %>
+     <%= form.rich_text_area :description, class: "shadow appearance-none border rounded w-full py-2 px-3 text-white   leading-tight focus:outline-none focus:shadow-outline" %>
    </div>
 
    <div class="actions">
-     <%= form.submit 'Save', class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+     <%= form.submit 'Kaydet', class: "text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800" %>
    </div>
 <% end %>
+

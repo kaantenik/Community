@@ -1,20 +1,39 @@
-<div class="bg-white p-4 rounded-lg shadow-md">
-  <p class="text-lg font-bold">
-    <strong>Name:</strong>
+  
+<div class="p-4 bg-gray-700 rounded-lg shadow-md">
+  <p class="font-bold text-white">
+    <strong>İsim:</strong>
     <%= @club.name %>
   </p>
+  
 
-  <p class="mt-2">
-    <strong>Description:</strong>
-    <%= @club.description %>
+  <p class="mt-2 text-white ">
+    <strong>Tanıtım:</strong>
+      <div class="text-gray-400">
+        <%= @club.description %>
+      </div>
   </p>
  
-   <div class="mt-4">
-
-  <% if policy(Club).edit? %>
-      <%= link_to 'Edit', edit_club_path(@club), class: "text-blue-500 hover:underline" %> |
+  <div class="absolute mt-4 right-5">
+    <% if policy(Club).edit? %>
+      <%= link_to 'Edit', edit_club_path(@club), class:  "text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900" %> |
+    <% end %>
+      <%= link_to 'Back', clubs_path, class: "text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800" %>
+  </div>
+   
+  <div class="absolute top-16 right-5 mt-9">
+    <% if current_user.has_role?(:admin) || current_user.has_role?(:president,@club) %>
+      <%= link_to 'Üyelik Taleplerini Gör', membership_requests_club_path(@club), class: "text-yellow-400 hover:text-white border border-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-yellow-900" %>
+    <% end %>
+  </div>
+   
+<h2 class="mt-10 font-bold text-white">Üyeler</h2>
+  <% if @members.present? %>
+    <ul class="pl-5 space-y-2 text-gray-400 list-disc">
+      <% @members.each do |member| %>
+        <li class="text-lg"><%= member.email %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p class="text-red-500">Bu kulübün üyesi yoktur </p>
   <% end %>
-
-    <%= link_to 'Back', clubs_path, class: "text-blue-500 hover:underline" %>
-   </div>
 </div>

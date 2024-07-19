@@ -5,6 +5,18 @@ class ClubPolicy < ApplicationPolicy
     end
   end
 
+  def approve_membership_request?
+    user.present? && (user.has_role?(:president, record) || user.has_role?(:admin))
+  end
+
+  def reject_membership_request?
+    user.present? && (user.has_role?(:president, record) || user.has_role?(:admin))
+  end
+
+  def membership_requests?
+    user.present? && (user.has_role?(:president, record) || user.has_role?(:admin))
+  end
+
   def show?
     true
   end
